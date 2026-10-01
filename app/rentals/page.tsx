@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import type { Metadata } from 'next';
+import ColorBlockPlaceholder from '@/components/ColorBlockPlaceholder';
 import { MARINA_INFO } from '@/lib/siteData';
-import { ExternalLink, Users, Anchor, ArrowRight, ShieldAlert } from 'lucide-react';
+import { ExternalLink, Users, ArrowRight, ShieldAlert } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: "Boat Rentals on Center Hill Lake | Pontoons, Houseboats & Fishing Boats",
@@ -16,7 +16,7 @@ export default function RentalsIndexPage() {
       title: "Pontoon Boats & Double-Deckers with Slides",
       slug: "pontoons",
       href: "/rentals/pontoons",
-      image: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?q=80&w=800&auto=format&fit=crop",
+      categoryName: "Pontoons & Double-Deckers",
       capacity: "10 to 14 Passengers",
       startingRate: "From ~$300 – $470 / day in season",
       summary: "Hidden Harbor Marina offers premium pontoon rentals on Center Hill Lake, including classic cruisers and popular double-decker pontoons featuring water slides. Perfect for family reunions, summer parties, and peaceful coving."
@@ -25,7 +25,7 @@ export default function RentalsIndexPage() {
       title: "Deck Boats",
       slug: "deck-boats",
       href: "/rentals/deck-boats",
-      image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=800&auto=format&fit=crop",
+      categoryName: "Watersport Deck Boats",
       capacity: "Up to 10 Passengers",
       startingRate: "Starting daily rates available upon booking",
       summary: "Spacious deck boat rentals combine the speed and maneuverability of a runabout with the comfortable seating layout of a pontoon. Ideal for cruising, tubing, and exploring secret coves across Center Hill Lake."
@@ -34,7 +34,7 @@ export default function RentalsIndexPage() {
       title: "Fishing Boats",
       slug: "fishing-boats",
       href: "/rentals/fishing-boats",
-      image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop",
+      categoryName: "Center Hill Angling",
       capacity: "2 to 4 Anglers",
       startingRate: "From ~$135 / day",
       summary: "Reliable, economical fishing boat rentals outfitted for early morning bass fishing and quiet angling trips on Center Hill Lake. Head out to deep drop-offs and wooded coves where smallmouth bass bite."
@@ -43,7 +43,7 @@ export default function RentalsIndexPage() {
       title: "Houseboats",
       slug: "houseboats",
       href: "/rentals/houseboats",
-      image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800&auto=format&fit=crop",
+      categoryName: "Multi-Day Houseboats",
       capacity: "Sleeps up to 10 Guests",
       startingRate: "Weekend packages from ~$1,900",
       summary: "Experience a multi-day floating retreat on Center Hill Lake. Our houseboat rentals feature full kitchens, private bedrooms, top sun decks, and home-like amenities for immersive lake vacations."
@@ -84,14 +84,12 @@ export default function RentalsIndexPage() {
             >
               <div>
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-lake-950">
-                  <Image
-                    src={boat.image}
-                    alt={boat.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  <ColorBlockPlaceholder
+                    title={boat.title}
+                    category={boat.categoryName}
+                    aspectRatio="aspect-[16/10]"
                   />
-                  <div className="absolute top-4 right-4 bg-lake-950/80 backdrop-blur-md text-sand-300 px-3 py-1 rounded-full text-xs font-bold">
+                  <div className="absolute top-4 right-4 bg-lake-950/80 backdrop-blur-md text-sand-300 px-3 py-1 rounded-full text-xs font-bold border border-sand-300/30">
                     {boat.startingRate}
                   </div>
                 </div>

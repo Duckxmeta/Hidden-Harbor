@@ -1,7 +1,8 @@
 import React from 'react';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 import { MARINA_INFO } from '@/lib/siteData';
-import { MapPin, Phone, Mail, Clock, Navigation, ExternalLink, Calendar } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Navigation, Calendar } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: "Contact & Directions | Hidden Harbor Marina Smithville TN",
@@ -74,19 +75,68 @@ export default function ContactPage() {
             </p>
           </div>
 
-          {/* Card 4: Hours */}
+          {/* Card 4: Hours Summary */}
           <div className="bg-white p-6 rounded-xl border border-cream-300 shadow-sm space-y-3">
             <div className="w-10 h-10 rounded-lg bg-lake-900 text-sand-300 flex items-center justify-center">
               <Clock className="w-5 h-5" />
             </div>
             <h2 className="font-serif text-lg font-bold text-lake-950">Operating Hours</h2>
-            <p className="text-sm font-bold text-lake-950">
-              {MARINA_INFO.hours}
+            <p className="text-xs font-bold text-lake-950 leading-relaxed">
+              Sun–Thu: 9 AM – 5 PM<br />
+              Fri & Sat: 9 AM – 6 PM
             </p>
             <p className="text-xs text-slate-500 leading-relaxed">
-              <Calendar className="w-3.5 h-3.5 inline mr-1 text-cedar-600" />
-              Hours can change by season. Please call to confirm in late fall/winter.
+              In-season schedule May 18th through Labor Day.
             </p>
+          </div>
+
+        </div>
+
+        {/* Real Hours Graphic Section */}
+        <div className="bg-white rounded-2xl p-8 md:p-12 border border-cream-300 shadow-card mb-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          
+          <div className="md:col-span-5 relative aspect-square max-w-sm mx-auto w-full rounded-xl overflow-hidden shadow-md border border-cream-300 bg-lake-950">
+            <Image
+              src="/hours.jpg"
+              alt="Hidden Harbor Marina Hours of Operation: Sunday through Thursday 9:00 AM to 5:00 PM, Friday and Saturday 9:00 AM to 6:00 PM starting May 18th through Labor Day"
+              fill
+              className="object-contain"
+            />
+          </div>
+
+          <div className="md:col-span-7 space-y-4">
+            <div className="flex items-center space-x-2 text-cedar-600 font-bold text-xs uppercase tracking-wider">
+              <Clock className="w-4 h-4 text-sand-500" />
+              <span>OFFICIAL MARINA HOURS</span>
+            </div>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-lake-950">
+              Hours of Operation
+            </h2>
+
+            <div className="space-y-3 text-slate-700 text-sm md:text-base leading-relaxed">
+              <p>
+                Hidden Harbor Marina operates on seasonal hours to accommodate Center Hill Lake boaters, cabin guests, and slip holders.
+              </p>
+              
+              <div className="p-5 bg-cream-100 rounded-xl border border-cream-300 space-y-2">
+                <h3 className="font-bold text-lake-950 text-base">In-Season Hours (May 18th through Labor Day):</h3>
+                <ul className="space-y-1.5 text-sm text-slate-800">
+                  <li className="flex justify-between border-b border-cream-300 pb-1">
+                    <span>Sunday – Thursday:</span>
+                    <span className="font-bold text-lake-950">9:00 AM – 5:00 PM</span>
+                  </li>
+                  <li className="flex justify-between border-b border-cream-300 pb-1">
+                    <span>Friday & Saturday:</span>
+                    <span className="font-bold text-lake-950">9:00 AM – 6:00 PM</span>
+                  </li>
+                </ul>
+              </div>
+
+              <p className="text-xs text-slate-500 leading-relaxed flex items-center space-x-1.5 pt-1">
+                <Calendar className="w-4 h-4 text-cedar-600 shrink-0" />
+                <span>Standard off-season hours are daily 8:00 AM – 5:00 PM. Hours are subject to change seasonally. Please call <strong>(615) 597-8800</strong> to verify during late fall and winter months.</span>
+              </p>
+            </div>
           </div>
 
         </div>

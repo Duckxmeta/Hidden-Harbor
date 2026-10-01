@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { MARINA_INFO } from '@/lib/siteData';
 import { Menu, X, ExternalLink, Phone } from 'lucide-react';
 
@@ -20,24 +21,36 @@ export default function Header() {
   return (
     <header className={`sticky top-0 z-40 transition-all duration-300 ${
       scrolled 
-        ? 'bg-lake-900/95 backdrop-blur-md shadow-md py-3 text-white' 
-        : 'bg-lake-900 text-white py-4'
+        ? 'bg-lake-950/95 backdrop-blur-md shadow-md py-2.5 text-white' 
+        : 'bg-lake-950 text-white py-3.5'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Brand / Logo matching concept art style */}
-          <Link href="/" className="group flex flex-col focus:outline-none">
-            <span className="text-[10px] tracking-[0.25em] text-sand-300 font-bold uppercase transition-colors group-hover:text-white">
-              TENNESSEE • CENTER HILL LAKE
-            </span>
-            <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-white transition-colors group-hover:text-sand-200">
-              Hidden Harbor Marina
-            </span>
+          {/* Brand / Logo with real logo.jpg */}
+          <Link href="/" className="group flex items-center space-x-3 focus:outline-none">
+            <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden shrink-0 border border-sand-300/40 bg-cream-50">
+              <Image
+                src="/logo.jpg"
+                alt="Hidden Harbor Marina Logo"
+                fill
+                sizes="48px"
+                className="object-cover"
+                priority
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[9px] md:text-[10px] tracking-[0.2em] text-sand-300 font-bold uppercase transition-colors group-hover:text-white">
+                TENNESSEE • CENTER HILL LAKE
+              </span>
+              <span className="font-serif text-lg md:text-xl font-bold tracking-tight text-white transition-colors group-hover:text-sand-200">
+                Hidden Harbor Marina
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
+          <nav className="hidden md:flex items-center space-x-7 text-sm font-medium">
             <Link 
               href="/rentals" 
               className="text-slate-200 hover:text-sand-300 transition-colors py-1 focus:outline-none focus:text-sand-300"
@@ -80,10 +93,10 @@ export default function Header() {
               href={MARINA_INFO.bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-sand-300 hover:bg-sand-400 text-lake-950 font-semibold px-5 py-2.5 rounded-md shadow-sm transition-all inline-flex items-center space-x-1.5 focus:ring-2 focus:ring-sand-300"
+              className="bg-sand-300 hover:bg-sand-400 text-lake-950 font-bold px-4 py-2 rounded-md shadow-sm transition-all inline-flex items-center space-x-1.5 text-sm focus:ring-2 focus:ring-sand-300"
             >
               <span>Book</span>
-              <ExternalLink className="w-4 h-4 opacity-75" />
+              <ExternalLink className="w-3.5 h-3.5 opacity-80" />
             </a>
           </nav>
 
@@ -93,7 +106,7 @@ export default function Header() {
               href={MARINA_INFO.bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-sand-300 text-lake-950 text-xs font-semibold px-3 py-1.5 rounded"
+              className="bg-sand-300 text-lake-950 text-xs font-bold px-3 py-1.5 rounded"
             >
               Book
             </a>

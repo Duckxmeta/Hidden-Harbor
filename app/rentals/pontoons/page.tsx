@@ -1,8 +1,8 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import FaqSection from '@/components/FaqSection';
+import ColorBlockPlaceholder from '@/components/ColorBlockPlaceholder';
 import { MARINA_INFO } from '@/lib/siteData';
 import { ExternalLink, Users, Clock, Fuel, ShieldCheck, CheckCircle2, AlertCircle } from 'lucide-react';
 
@@ -44,7 +44,7 @@ export default function PontoonsPage() {
           <span className="text-lake-950 font-bold">Pontoons</span>
         </nav>
 
-        {/* Hero Section & Direct Answer Opening (First 40 Words Target for AI Citations) */}
+        {/* Hero Section & Direct Answer Opening */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 space-y-6">
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-cedar-600">
@@ -80,18 +80,16 @@ export default function PontoonsPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-card border border-cream-300">
-            <Image
-              src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?q=80&w=1000&auto=format&fit=crop"
-              alt="Pontoon boat cruising Center Hill Lake near Smithville TN"
-              fill
-              priority
-              className="object-cover"
+          <div className="lg:col-span-5">
+            <ColorBlockPlaceholder
+              title="Double-Decker Pontoons & Cruisers"
+              category="Pontoon Fleet"
+              aspectRatio="aspect-[4/3]"
             />
           </div>
         </div>
 
-        {/* Key Specifications & Pricing */}
+        {/* Specs Grid */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-6">
           <div className="bg-white p-6 rounded-xl border border-cream-300 shadow-sm space-y-2">
             <div className="flex items-center space-x-2 text-cedar-600 font-bold text-sm">
@@ -130,7 +128,7 @@ export default function PontoonsPage() {
           </div>
         </div>
 
-        {/* Detailed Description & What's Included */}
+        {/* Detailed Description */}
         <div className="mt-12 bg-white rounded-2xl p-8 md:p-12 border border-cream-300 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-10">
           
           <div className="lg:col-span-7 space-y-6">
@@ -193,14 +191,13 @@ export default function PontoonsPage() {
 
         </div>
 
-        {/* Cross Links to Other Pages */}
+        {/* Cross Links */}
         <div className="mt-12 text-center text-sm text-slate-600">
           Looking for a cabin stay alongside your boat rental? Explore our <Link href="/stay/cabins" className="text-lake-950 font-bold underline hover:text-cedar-600">Lakeside Cabins</Link> or plan your drive using our <Link href="/the-lake" className="text-lake-950 font-bold underline hover:text-cedar-600">Center Hill Lake Day Guide</Link>.
         </div>
 
       </div>
 
-      {/* FAQ Section */}
       <div className="mt-12">
         <FaqSection items={pontoonFaqs} title="Pontoon Rental FAQ" />
       </div>

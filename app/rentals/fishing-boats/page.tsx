@@ -1,8 +1,8 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import FaqSection from '@/components/FaqSection';
+import ColorBlockPlaceholder from '@/components/ColorBlockPlaceholder';
 import { MARINA_INFO } from '@/lib/siteData';
 import { ExternalLink, Users, Clock, Fuel, ShieldCheck, CheckCircle2, AlertCircle } from 'lucide-react';
 
@@ -44,7 +44,7 @@ export default function FishingBoatsPage() {
           <span className="text-lake-950 font-bold">Fishing Boats</span>
         </nav>
 
-        {/* Hero Section & Direct Answer Opening (First 40 Words Target for AI Citations) */}
+        {/* Hero Section & Direct Answer Opening */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 space-y-6">
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-cedar-600">
@@ -80,13 +80,11 @@ export default function FishingBoatsPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-card border border-cream-300">
-            <Image
-              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1000&auto=format&fit=crop"
-              alt="Fishing boat on Center Hill Lake near Casey Cove"
-              fill
-              priority
-              className="object-cover"
+          <div className="lg:col-span-5">
+            <ColorBlockPlaceholder
+              title="Bass & Walleye Fishing Boats"
+              category="Angling Fleet"
+              aspectRatio="aspect-[4/3]"
             />
           </div>
         </div>
@@ -188,7 +186,7 @@ export default function FishingBoatsPage() {
 
         {/* Cross Links */}
         <div className="mt-12 text-center text-sm text-slate-600">
-          Planning an early morning launch? Consider booking one of our <Link href="/stay/campsites" className="text-lake-950 font-bold underline hover:text-cedar-600">Campground Sites</Link> or <Link href="/stay/cabins" className="text-lake-950 font-bold underline hover:text-cedar-600">Lakeside Cabins</Link>.
+          Planning an early morning launch? Consider booking one of our <Link href="/stay/camping" className="text-lake-950 font-bold underline hover:text-cedar-600">Campground Sites</Link> or <Link href="/stay/cabins" className="text-lake-950 font-bold underline hover:text-cedar-600">Lakeside Cabins</Link>.
         </div>
 
       </div>

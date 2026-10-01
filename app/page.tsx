@@ -4,8 +4,9 @@ import Link from 'next/link';
 import TrustStrip from '@/components/TrustStrip';
 import PhotoCard from '@/components/PhotoCard';
 import FaqSection from '@/components/FaqSection';
+import ColorBlockPlaceholder from '@/components/ColorBlockPlaceholder';
 import { MARINA_INFO, HOMEPAGE_REVIEWS } from '@/lib/siteData';
-import { Star, MapPin, ArrowRight, ExternalLink, Anchor, ShieldCheck, HeartHandshake } from 'lucide-react';
+import { Star, MapPin, ArrowRight, ExternalLink, Clock, HeartHandshake, Calendar } from 'lucide-react';
 
 export default function HomePage() {
   const homeFaqs = [
@@ -30,26 +31,29 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
       
-      {/* HERO SECTION - Matching concept art concept art (concepthhm.jpg) */}
+      {/* HERO SECTION - Real banner.png aerial view */}
       <section className="relative min-h-[85vh] flex items-end md:items-center justify-start overflow-hidden bg-lake-950 pb-16 md:pb-0">
         
-        {/* Full Bleed Background Image */}
+        {/* Full Bleed Real Banner Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=2000&auto=format&fit=crop"
-            alt="Pontoons docked on Center Hill Lake pier at Hidden Harbor Marina"
+            src="/banner.png"
+            alt="Hidden Harbor Marina on Center Hill Lake in Smithville, Tennessee"
             fill
             priority
-            className="object-cover object-center"
+            className="object-cover object-[center_60%]"
           />
-          {/* Subtle gradient overlay to ensure text readability matching art */}
-          <div className="absolute inset-0 bg-gradient-to-r from-lake-950/80 via-lake-950/50 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-lake-950/90 via-transparent to-lake-950/30" />
+          {/* Subtle gradient overlay to ensure text readability over left side */}
+          <div className="absolute inset-0 bg-gradient-to-r from-lake-950/90 via-lake-950/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-lake-950/95 via-transparent to-lake-950/40" />
         </div>
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-28 pb-16 md:py-32">
           <div className="max-w-2xl">
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-sand-300 block mb-2">
+              SMITHVILLE, TENNESSEE • CENTER HILL LAKE
+            </span>
             <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-bold text-white tracking-tight leading-[1.1] text-shadow-sm">
               Hidden Harbor Marina
             </h1>
@@ -85,7 +89,61 @@ export default function HomePage() {
       {/* TRUST STRIP */}
       <TrustStrip />
 
-      {/* FOUR PHOTO CARDS SECTION - Matching concept art grid */}
+      {/* HOURS CARD UNDER TRUST STRIP */}
+      <section className="bg-white py-10 border-b border-cream-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-cream-100 rounded-2xl p-6 md:p-8 border border-cream-300 shadow-sm grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            
+            {/* Real Hours Image Card */}
+            <div className="md:col-span-5 relative aspect-square max-w-sm mx-auto w-full rounded-xl overflow-hidden shadow-md border border-cream-300 bg-lake-950">
+              <Image
+                src="/hours.jpg"
+                alt="Hidden Harbor Marina Hours of Operation: Sunday through Thursday 9:00 AM to 5:00 PM, Friday and Saturday 9:00 AM to 6:00 PM starting May 18th through Labor Day"
+                fill
+                className="object-contain"
+              />
+            </div>
+
+            {/* Text Next to Hours Graphic */}
+            <div className="md:col-span-7 space-y-4">
+              <div className="flex items-center space-x-2 text-cedar-600 font-bold text-xs uppercase tracking-wider">
+                <Clock className="w-4 h-4 text-sand-500" />
+                <span>MARINA DOCK & STORE HOURS</span>
+              </div>
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-lake-950">
+                Current Hours of Operation
+              </h2>
+
+              <div className="space-y-3 text-slate-700 text-sm md:text-base">
+                <div className="p-4 bg-white rounded-lg border border-cream-300 space-y-1">
+                  <p className="font-bold text-lake-950 text-base">In-Season Operating Schedule (May 18 – Labor Day)</p>
+                  <ul className="space-y-1 text-slate-700">
+                    <li><strong>Sunday – Thursday:</strong> 9:00 AM – 5:00 PM</li>
+                    <li><strong>Friday & Saturday:</strong> 9:00 AM – 6:00 PM</li>
+                  </ul>
+                </div>
+                <p className="text-xs text-slate-500 leading-relaxed flex items-center space-x-1">
+                  <Calendar className="w-3.5 h-3.5 text-cedar-600 shrink-0" />
+                  <span>Standard off-season hours are daily 8:00 AM – 5:00 PM. Hours are subject to seasonal change; please call <strong>(615) 597-8800</strong> to confirm late fall/winter times.</span>
+                </p>
+              </div>
+
+              <div className="pt-2">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center space-x-1.5 text-sm font-bold text-lake-950 hover:text-cedar-600 transition-colors"
+                >
+                  <span>View Full Contact Info & Driving Directions</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* FOUR PHOTO CARDS SECTION - Matching concept art structure */}
       <section className="py-16 md:py-24 bg-cream-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -99,34 +157,99 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <PhotoCard
-              title="PONTOONS"
-              subtitle="Double-deckers with slides & classic cruisers"
-              href="/rentals/pontoons"
-              imageSrc="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?q=80&w=800&auto=format&fit=crop"
-              imageAlt="Pontoon boat on Center Hill Lake"
-            />
-            <PhotoCard
-              title="HOUSEBOATS"
-              subtitle="Multi-day lake getaways with full amenities"
-              href="/rentals/houseboats"
-              imageSrc="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800&auto=format&fit=crop"
-              imageAlt="Houseboat cruising calm lake water"
-            />
-            <PhotoCard
-              title="CABINS"
-              subtitle="Lakeside rustic & modern cabin rentals"
-              href="/stay/cabins"
-              imageSrc="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=800&auto=format&fit=crop"
-              imageAlt="Wooden cabin nestled in green forest near lake"
-            />
-            <PhotoCard
-              title="CAMPING"
-              subtitle="22 water/electric RV sites & rustic spots"
-              href="/stay/camping"
-              imageSrc="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=800&auto=format&fit=crop"
-              imageAlt="Tent camping setup near water at sunset"
-            />
+            
+            {/* Card 1: Pontoons */}
+            <Link 
+              href="/rentals/pontoons" 
+              className="group flex flex-col bg-white rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <ColorBlockPlaceholder 
+                title="PONTOONS" 
+                category="Double-Deckers & Cruisers" 
+                aspectRatio="aspect-[4/3]"
+              />
+              <div className="p-5 flex items-center justify-between bg-white border-t border-slate-100">
+                <div>
+                  <span className="font-bold text-sm tracking-wider uppercase text-lake-950 group-hover:text-cedar-600 transition-colors">
+                    PONTOONS
+                  </span>
+                  <p className="text-xs text-slate-500 mt-0.5">Slides & Cruisers</p>
+                </div>
+                <div className="w-8 h-8 rounded-full bg-cream-200 group-hover:bg-sand-300 flex items-center justify-center text-lake-950 transition-colors shrink-0 ml-2">
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </div>
+            </Link>
+
+            {/* Card 2: Houseboats */}
+            <Link 
+              href="/rentals/houseboats" 
+              className="group flex flex-col bg-white rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <ColorBlockPlaceholder 
+                title="HOUSEBOATS" 
+                category="Multi-Day Getaways" 
+                aspectRatio="aspect-[4/3]"
+              />
+              <div className="p-5 flex items-center justify-between bg-white border-t border-slate-100">
+                <div>
+                  <span className="font-bold text-sm tracking-wider uppercase text-lake-950 group-hover:text-cedar-600 transition-colors">
+                    HOUSEBOATS
+                  </span>
+                  <p className="text-xs text-slate-500 mt-0.5">Multi-day rentals</p>
+                </div>
+                <div className="w-8 h-8 rounded-full bg-cream-200 group-hover:bg-sand-300 flex items-center justify-center text-lake-950 transition-colors shrink-0 ml-2">
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </div>
+            </Link>
+
+            {/* Card 3: Cabins */}
+            <Link 
+              href="/stay/cabins" 
+              className="group flex flex-col bg-white rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <ColorBlockPlaceholder 
+                title="CABINS" 
+                category="Lakeside Cabins" 
+                aspectRatio="aspect-[4/3]"
+              />
+              <div className="p-5 flex items-center justify-between bg-white border-t border-slate-100">
+                <div>
+                  <span className="font-bold text-sm tracking-wider uppercase text-lake-950 group-hover:text-cedar-600 transition-colors">
+                    CABINS
+                  </span>
+                  <p className="text-xs text-slate-500 mt-0.5">Lakeside rentals</p>
+                </div>
+                <div className="w-8 h-8 rounded-full bg-cream-200 group-hover:bg-sand-300 flex items-center justify-center text-lake-950 transition-colors shrink-0 ml-2">
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </div>
+            </Link>
+
+            {/* Card 4: Camping */}
+            <Link 
+              href="/stay/camping" 
+              className="group flex flex-col bg-white rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <ColorBlockPlaceholder 
+                title="CAMPING" 
+                category="22 Water/Electric Sites" 
+                aspectRatio="aspect-[4/3]"
+              />
+              <div className="p-5 flex items-center justify-between bg-white border-t border-slate-100">
+                <div>
+                  <span className="font-bold text-sm tracking-wider uppercase text-lake-950 group-hover:text-cedar-600 transition-colors">
+                    CAMPING
+                  </span>
+                  <p className="text-xs text-slate-500 mt-0.5">RV & tent sites</p>
+                </div>
+                <div className="w-8 h-8 rounded-full bg-cream-200 group-hover:bg-sand-300 flex items-center justify-center text-lake-950 transition-colors shrink-0 ml-2">
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </div>
+            </Link>
+
           </div>
         </div>
       </section>
@@ -136,7 +259,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            <div className="lg:col-span-6 space-y-6">
+            <div className="lg:col-span-7 space-y-6">
               <div>
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-cedar-600">
                   OUR STORY & HERITAGE
@@ -172,23 +295,28 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Visual Feature Grid */}
-            <div className="lg:col-span-6 grid grid-cols-2 gap-4">
-              <div className="relative aspect-[4/5] rounded-xl overflow-hidden shadow-md">
+            {/* Visual Feature: Real Logo & Aerial Overview */}
+            <div className="lg:col-span-5 space-y-4">
+              <div className="relative aspect-[16/10] rounded-xl overflow-hidden shadow-md border border-cream-300 bg-lake-950">
                 <Image
-                  src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=800&auto=format&fit=crop"
-                  alt="Center Hill Lake serene waters"
+                  src="/banner.png"
+                  alt="Aerial overview of Hidden Harbor Marina on Center Hill Lake"
                   fill
                   className="object-cover"
                 />
               </div>
-              <div className="relative aspect-[4/5] rounded-xl overflow-hidden shadow-md mt-6">
-                <Image
-                  src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop"
-                  alt="Docked boats at Hidden Harbor Marina"
-                  fill
-                  className="object-cover"
-                />
+              
+              <div className="p-5 bg-cream-100 rounded-xl border border-cream-300 text-center space-y-2">
+                <div className="relative w-16 h-16 rounded-full overflow-hidden mx-auto border border-sand-300 bg-cream-50">
+                  <Image
+                    src="/logo.jpg"
+                    alt="Hidden Harbor Marina Logo"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <p className="font-serif font-bold text-lake-950 text-base">Center Hill Lake • Smithville, TN</p>
+                <p className="text-xs text-slate-500">2685 Casey Cove Rd • (615) 597-8800</p>
               </div>
             </div>
 

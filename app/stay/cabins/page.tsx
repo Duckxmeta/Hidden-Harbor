@@ -1,8 +1,8 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import FaqSection from '@/components/FaqSection';
+import ColorBlockPlaceholder from '@/components/ColorBlockPlaceholder';
 import { MARINA_INFO } from '@/lib/siteData';
 import { ExternalLink, Users, Clock, Home, CheckCircle2, AlertCircle } from 'lucide-react';
 
@@ -44,7 +44,7 @@ export default function CabinsPage() {
           <span className="text-lake-950 font-bold">Cabins</span>
         </nav>
 
-        {/* Hero Section & Direct Answer Opening (First 40 Words Target for AI Citations) */}
+        {/* Hero Section & Direct Answer Opening */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 space-y-6">
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-cedar-600">
@@ -80,13 +80,11 @@ export default function CabinsPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-card border border-cream-300">
-            <Image
-              src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1000&auto=format&fit=crop"
-              alt="Lakeside cabin on Center Hill Lake near Smithville TN"
-              fill
-              priority
-              className="object-cover"
+          <div className="lg:col-span-5">
+            <ColorBlockPlaceholder
+              title="Rustic & Modern Lakeside Cabins"
+              category="Cabin Rentals"
+              aspectRatio="aspect-[4/3]"
             />
           </div>
         </div>

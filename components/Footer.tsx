@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { MARINA_INFO } from '@/lib/siteData';
 import { MapPin, Phone, Mail, Clock, ExternalLink, Star } from 'lucide-react';
 
@@ -9,15 +10,26 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-12 border-b border-lake-800">
           
-          {/* Column 1: Brand & NAP */}
+          {/* Column 1: Brand Logo & NAP */}
           <div className="space-y-4">
-            <div>
-              <span className="text-xs tracking-[0.2em] text-sand-300 font-bold uppercase">
-                Center Hill Lake
-              </span>
-              <h2 className="font-serif text-2xl font-bold text-white tracking-tight mt-0.5">
-                Hidden Harbor Marina
-              </h2>
+            <div className="flex items-center space-x-3">
+              <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0 border border-sand-300/40 bg-cream-50">
+                <Image
+                  src="/logo.jpg"
+                  alt="Hidden Harbor Marina Logo"
+                  fill
+                  sizes="48px"
+                  className="object-cover"
+                />
+              </div>
+              <div>
+                <span className="text-[10px] tracking-[0.2em] text-sand-300 font-bold uppercase block">
+                  Center Hill Lake
+                </span>
+                <h2 className="font-serif text-xl font-bold text-white tracking-tight">
+                  Hidden Harbor Marina
+                </h2>
+              </div>
             </div>
             
             <address className="not-italic text-sm text-slate-300 space-y-2.5">
@@ -151,7 +163,7 @@ export default function Footer() {
             <div className="flex items-start space-x-2 text-sm text-slate-300">
               <Clock className="w-4 h-4 text-sand-300 shrink-0 mt-1" />
               <div>
-                <p className="font-semibold text-white">{MARINA_INFO.hours}</p>
+                <p className="font-semibold text-white">{MARINA_INFO.hoursInSeason}</p>
                 <p className="text-xs text-slate-400 mt-1 leading-relaxed">
                   {MARINA_INFO.hoursSeasonalNote}
                 </p>

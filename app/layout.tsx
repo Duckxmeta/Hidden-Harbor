@@ -5,7 +5,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileBottomBar from "@/components/MobileBottomBar";
 import SchemaOrg from "@/components/SchemaOrg";
-import { MARINA_INFO } from "@/lib/siteData";
 
 const serifFont = Playfair_Display({
   subsets: ["latin"],
@@ -27,6 +26,10 @@ export const metadata: Metadata = {
   },
   description: "Hidden Harbor Marina on Center Hill Lake in Smithville, TN offers pontoon, houseboat, deck boat, and fishing boat rentals, cabins, camping, covered boat slips, and marine fuel.",
   keywords: ["Hidden Harbor Marina", "Center Hill Lake boat rentals", "Smithville TN marina", "Center Hill Lake cabins", "houseboat rentals Center Hill Lake", "pontoon rentals Smithville TN"],
+  icons: {
+    icon: "/logo.jpg",
+    apple: "/logo.jpg",
+  },
   authors: [{ name: "Hidden Harbor Marina" }],
   creator: "Hidden Harbor Marina",
   openGraph: {
@@ -38,10 +41,10 @@ export const metadata: Metadata = {
     siteName: "Hidden Harbor Marina",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1200&auto=format&fit=crop",
+        url: "/banner.png",
         width: 1200,
         height: 630,
-        alt: "Hidden Harbor Marina on Center Hill Lake",
+        alt: "Hidden Harbor Marina on Center Hill Lake in Smithville, Tennessee",
       },
     ],
   },

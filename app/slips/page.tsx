@@ -2,8 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import ColorBlockPlaceholder from '@/components/ColorBlockPlaceholder';
 import { MARINA_INFO } from '@/lib/siteData';
-import { Phone, Mail, Anchor, Fuel, ShoppingBag, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, Anchor, Fuel, ShoppingBag, ShieldCheck } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: "Covered Boat Slips & Fuel Dock | Hidden Harbor Marina Center Hill Lake",
@@ -75,10 +76,11 @@ export default function SlipsPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative aspect-[4/3] rounded-xl overflow-hidden shadow-md">
+          {/* Real Banner Aerial Image of Docks */}
+          <div className="lg:col-span-5 relative aspect-[4/3] rounded-xl overflow-hidden shadow-md border border-cream-300 bg-lake-950">
             <Image
-              src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1000&auto=format&fit=crop"
-              alt="Covered boat slips at Hidden Harbor Marina on Center Hill Lake"
+              src="/banner.png"
+              alt="Aerial view of covered boat slips at Hidden Harbor Marina on Center Hill Lake"
               fill
               className="object-cover"
             />

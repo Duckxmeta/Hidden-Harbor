@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import type { Metadata } from 'next';
+import ColorBlockPlaceholder from '@/components/ColorBlockPlaceholder';
 import { MARINA_INFO } from '@/lib/siteData';
 import { ExternalLink, Home, Tent, ArrowRight, ShieldAlert } from 'lucide-react';
 
@@ -42,12 +42,10 @@ export default function StayIndexPage() {
           <div className="bg-white rounded-2xl border border-cream-300 shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between overflow-hidden group">
             <div>
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-lake-950">
-                <Image
-                  src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=800&auto=format&fit=crop"
-                  alt="Lakeside cabin rentals at Hidden Harbor Marina"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                <ColorBlockPlaceholder
+                  title="Lakeside Cabin Rentals"
+                  category="Cabin Accommodations"
+                  aspectRatio="aspect-[16/10]"
                 />
               </div>
 
@@ -92,12 +90,10 @@ export default function StayIndexPage() {
           <div className="bg-white rounded-2xl border border-cream-300 shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between overflow-hidden group">
             <div>
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-lake-950">
-                <Image
-                  src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=800&auto=format&fit=crop"
-                  alt="Campground & RV sites on Center Hill Lake"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                <ColorBlockPlaceholder
+                  title="22 Water/Electric RV & Tent Sites"
+                  category="Campground & RV Park"
+                  aspectRatio="aspect-[16/10]"
                 />
               </div>
 

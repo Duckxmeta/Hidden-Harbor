@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { MARINA_INFO } from '@/lib/siteData';
-import { HeartHandshake, ShieldCheck, Anchor, ExternalLink, ArrowRight } from 'lucide-react';
+import { HeartHandshake, ShieldCheck, Anchor, ExternalLink } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: "Our History & New Chapter | Hidden Harbor Marina Center Hill Lake",
@@ -83,17 +83,22 @@ export default function AboutPage() {
           </div>
 
           <div className="lg:col-span-5 space-y-6">
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md">
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md border border-cream-300 bg-lake-950">
               <Image
-                src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1000&auto=format&fit=crop"
-                alt="Center Hill Lake sunset over Hidden Harbor Marina"
+                src="/banner.png"
+                alt="Aerial view of Hidden Harbor Marina on Center Hill Lake"
                 fill
                 className="object-cover"
               />
             </div>
             
             <div className="p-6 bg-cream-100 rounded-xl border border-cream-300 space-y-3 text-sm text-slate-700">
-              <h3 className="font-serif font-bold text-lake-950 text-base">Key Facts at a Glance</h3>
+              <div className="flex items-center space-x-3 mb-2">
+                <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0 border border-sand-300 bg-cream-50">
+                  <Image src="/logo.jpg" alt="Hidden Harbor Logo" fill className="object-cover" />
+                </div>
+                <h3 className="font-serif font-bold text-lake-950 text-base">Key Facts at a Glance</h3>
+              </div>
               <ul className="space-y-2">
                 <li className="flex items-center space-x-2">
                   <Anchor className="w-4 h-4 text-cedar-600 shrink-0" />
