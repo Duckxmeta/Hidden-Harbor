@@ -30,8 +30,9 @@ export const metadata: Metadata = {
     icon: "/logo.jpg",
     apple: "/logo.jpg",
   },
-  authors: [{ name: "Hidden Harbor Marina" }],
-  creator: "Hidden Harbor Marina",
+  authors: [{ name: "Kyle Kinkin", url: "https://www.justduckit.xyz/work" }],
+  creator: "Kyle Kinkin (https://www.justduckit.xyz/work)",
+  publisher: "Hidden Harbor Marina",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -62,6 +63,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${serifFont.variable} ${sansFont.variable} scroll-smooth`}>
       <head>
+        {/* Developer Credit Tag */}
+        <meta name="author" content="Kyle Kinkin - https://www.justduckit.xyz/work" />
+        <meta name="designer" content="Kyle Kinkin - https://www.justduckit.xyz/work" />
+        <meta name="developer" content="Kyle Kinkin - https://www.justduckit.xyz/work" />
         <SchemaOrg />
       </head>
       <body className="font-sans bg-cream-100 text-lake-900 antialiased min-h-screen flex flex-col selection:bg-sand-300 selection:text-lake-950">

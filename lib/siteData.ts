@@ -1,3 +1,9 @@
+export const DEVELOPER_CREDIT = {
+  name: "Kyle Kinkin",
+  url: "https://www.justduckit.xyz/work",
+  label: "Website built by Kyle Kinkin",
+};
+
 export const MARINA_INFO = {
   name: "Hidden Harbor Marina",
   address: "2685 Casey Cove Rd, Smithville, TN 37166",

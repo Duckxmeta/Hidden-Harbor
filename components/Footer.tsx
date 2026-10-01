@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { MARINA_INFO } from '@/lib/siteData';
+import { MARINA_INFO, DEVELOPER_CREDIT } from '@/lib/siteData';
 import { MapPin, Phone, Mail, Clock, ExternalLink, Star } from 'lucide-react';
 
 export default function Footer() {
@@ -178,13 +178,32 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 space-y-4 sm:space-y-0">
+        {/* Bottom Bar with Developer Credit Tag */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3">
           <p>© {new Date().getFullYear()} Hidden Harbor Marina. Operating on Center Hill Lake since 1989.</p>
-          <p className="text-slate-400">
-            2685 Casey Cove Rd, Smithville, TN 37166 • {MARINA_INFO.phone}
-          </p>
+          
+          <div className="flex items-center space-x-4">
+            <p className="text-slate-400">
+              2685 Casey Cove Rd, Smithville, TN 37166
+            </p>
+            <span className="hidden sm:inline text-slate-700">•</span>
+            {/* Developer Credit Tag */}
+            <p className="text-slate-400">
+              Website built by{' '}
+              <a
+                href={DEVELOPER_CREDIT.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sand-300 font-semibold hover:text-white hover:underline transition-colors inline-flex items-center space-x-1"
+                title="Custom Website Development by Kyle Kinkin"
+              >
+                <span>{DEVELOPER_CREDIT.name}</span>
+                <ExternalLink className="w-3 h-3 opacity-75" />
+              </a>
+            </p>
+          </div>
         </div>
+
       </div>
     </footer>
   );
