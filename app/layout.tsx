@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -76,6 +77,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <MobileBottomBar />
+        <Analytics />
       </body>
     </html>
   );
